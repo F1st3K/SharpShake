@@ -1,0 +1,15 @@
+/home/user/MyProjects/Shake/bin/Debug/net6.0/Shake
+/home/user/MyProjects/Shake/bin/Debug/net6.0/Shake.deps.json
+/home/user/MyProjects/Shake/bin/Debug/net6.0/Shake.runtimeconfig.json
+/home/user/MyProjects/Shake/bin/Debug/net6.0/Shake.dll
+/home/user/MyProjects/Shake/bin/Debug/net6.0/ref/Shake.dll
+/home/user/MyProjects/Shake/bin/Debug/net6.0/Shake.pdb
+/home/user/MyProjects/Shake/obj/Debug/net6.0/Shake.csproj.AssemblyReference.cache
+/home/user/MyProjects/Shake/obj/Debug/net6.0/Shake.GeneratedMSBuildEditorConfig.editorconfig
+/home/user/MyProjects/Shake/obj/Debug/net6.0/Shake.AssemblyInfoInputs.cache
+/home/user/MyProjects/Shake/obj/Debug/net6.0/Shake.AssemblyInfo.cs
+/home/user/MyProjects/Shake/obj/Debug/net6.0/Shake.csproj.CoreCompileInputs.cache
+/home/user/MyProjects/Shake/obj/Debug/net6.0/Shake.dll
+/home/user/MyProjects/Shake/obj/Debug/net6.0/ref/Shake.dll
+/home/user/MyProjects/Shake/obj/Debug/net6.0/Shake.pdb
+/home/user/MyProjects/Shake/obj/Debug/net6.0/Shake.genruntimeconfig.cache
