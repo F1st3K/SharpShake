@@ -19,12 +19,12 @@ class Shake : Movable
         }
         if (HeadShake.StumbledUponFood)
         {
-            GrowTail(map);
+            this.StumbledUponFood = true;
             HeadShake.StumbledUponFood = false;
         }
         else if (HeadShake.StumbledUponObstacle)
         {
-            CollisionWithObstacle();
+            this.StumbledUponObstacle = true;
             HeadShake.StumbledUponObstacle = false;            
         }
     }
@@ -32,9 +32,5 @@ class Shake : Movable
     {
         TailsShake.Add(new Tail(TailsShake[TailsShake.Count-1].id+1, TailsShake[TailsShake.Count-1].lastPosition));
         map[TailsShake[TailsShake.Count-1].position[0], TailsShake[TailsShake.Count-1].position[1]] = TailsShake[TailsShake.Count-1];
-    }
-    public void CollisionWithObstacle()
-    {
-
     }
 }
