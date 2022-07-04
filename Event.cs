@@ -13,6 +13,10 @@ class Event
         map[SomeShake.HeadShake.position[0], SomeShake.HeadShake.position[1]] = SomeShake.HeadShake;
         map[SomeShake.TailsShake[0].position[0], SomeShake.TailsShake[0].position[1]] = SomeShake.TailsShake[0];
         SomeShake.GrowTail(map);
+        SomeShake.GrowTail(map);
+        SomeShake.GrowTail(map);
+        SomeShake.GrowTail(map);
+        SomeShake.GrowTail(map);
         RunMainLoop(1);
     }
     public void RunMainLoop(double speed)

@@ -97,13 +97,21 @@ class Render
     private string TailDynamicTexturing(string type, int id, int i,int j)
     {
         string direction = "";
-        if (SearchTailsNextWithID( i+1, j, id-1) || SearchHeadNext( i+1, j))
+        if (SearchTailsNextWithID( i+1, j, id-1))
             direction+="-D";
-        else if (SearchTailsNextWithID( i-1, j, id-1) || SearchHeadNext( i-1, j))
+        else if (SearchTailsNextWithID( i-1, j, id-1))
             direction+="-U";
-        else if (SearchTailsNextWithID( i, j+1, id-1) || SearchHeadNext( i, j+1))
+        else if (SearchTailsNextWithID( i, j+1, id-1))
             direction+="-R";
-        else if (SearchTailsNextWithID( i, j-1, id-1) || SearchHeadNext( i, j-1))
+        else if (SearchTailsNextWithID( i, j-1, id-1))
+            direction+="-L";
+        else if (SearchHeadNext( i+1, j))
+            direction+="-D";
+        else if (SearchHeadNext( i-1, j))
+            direction+="-U";
+        else if (SearchHeadNext( i, j+1))
+            direction+="-R";
+        else if (SearchHeadNext( i, j-1))
             direction+="-L";
         if (SearchTailsNextWithID( i+1, j, id+1))
             direction+="D";
