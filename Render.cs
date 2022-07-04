@@ -6,6 +6,7 @@ class Render
     private Dictionary<string, string> TextureCollection = new()
     {
         {"border"      , "███████████████"},
+        {"foodpoint"   , " ▗▚▁ ▐▓▓▓▌ ▘▀▝ "},
         {"space"       , "               "},
         {"head"        , "╔═══╗║   ║╚═══╝"},
         {"tail"        , "┌───┐│   │└───┘"},
@@ -68,6 +69,12 @@ class Render
             {
                 Obstacle obstacle = (Obstacle)this.map[i,j];
                 this.textureMap[i,j]=obstacle.type;
+            }
+            break;
+            case FoodPoint:
+            {
+                FoodPoint foodPoint = (FoodPoint)this.map[i,j];
+                this.textureMap[i,j]=foodPoint.type;
             }
             break;
             case Space:
