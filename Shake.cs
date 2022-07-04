@@ -1,7 +1,7 @@
 class Shake : Movable
 {
-    public Head HeadShake;
-    public List<Tail> TailsShake;
+    public Head HeadShake {get;private set;}
+    public List<Tail> TailsShake{get;private set;}
     public Shake(int []position)
     {
         HeadShake = new Head(new int []{position[0],position[1]});
@@ -17,10 +17,24 @@ class Shake : Movable
             TailsShake[i].Move(map, prevPosition);
             prevPosition = TailsShake[i].lastPosition;
         }
+        if (HeadShake.StumbledUponFood)
+        {
+            GrowTail(map);
+            HeadShake.StumbledUponFood = false;
+        }
+        else if (HeadShake.StumbledUponObstacle)
+        {
+            CollisionWithObstacle();
+            HeadShake.StumbledUponObstacle = false;            
+        }
     }
     public void GrowTail(object[,] map)
     {
         TailsShake.Add(new Tail(TailsShake[TailsShake.Count-1].id+1, TailsShake[TailsShake.Count-1].lastPosition));
         map[TailsShake[TailsShake.Count-1].position[0], TailsShake[TailsShake.Count-1].position[1]] = TailsShake[TailsShake.Count-1];
+    }
+    public void CollisionWithObstacle()
+    {
+
     }
 }

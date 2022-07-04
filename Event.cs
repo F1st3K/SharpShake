@@ -15,7 +15,7 @@ class Event
         SomeShake.GrowTail(map);
         FoodPoint firstFood = new FoodPoint(map);
         map[firstFood.posX, firstFood.posY] = firstFood;
-        RunMainLoop(1);
+        RunMainLoop(1.2);
     }
     public void RunMainLoop(double speed)
     {
@@ -33,7 +33,7 @@ class Event
             {
                 Update();
                 lag -= 1000/speed;
-                speed += 0.01;
+                speed += 0.05;
             }
 
             render.RenderMap(this.map);

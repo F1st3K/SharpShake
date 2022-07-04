@@ -1,4 +1,5 @@
-class Space
+class Space:PossibleToPassThrough
 {
-
+    public Space()
+    {}
 }

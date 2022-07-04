@@ -1,4 +1,4 @@
-class FoodPoint
+class FoodPoint:PossibleToPassThrough
 {
     public int posY {get; private set;}
     public int posX {get; private set;}
@@ -27,7 +27,7 @@ class FoodPoint
             this.posX = rand.Next(0,map.GetLength(0));
             this.posY = rand.Next(0,map.GetLength(1));
         }
-        while (!(map[this.posX, this.posX] is Space));
+        while (!(map[this.posX, this.posY] is Space));
 
     }
 }

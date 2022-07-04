@@ -1,0 +1,7 @@
+class PossibleToPassThrough
+{
+    public PossibleToPassThrough()
+    {
+        
+    }
+}
