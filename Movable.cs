@@ -1,8 +1,10 @@
 class Movable:UnpossibleToPassThrough
 {
     public int[] position = new int[]{0,0};
+    public int[] prevposition = new int[]{0,0};
     public bool StumbledUponFood = false;
     public bool StumbledUponObstacle = false;
+    public int TickAnimetion = 0;
     public virtual void Move(object [,] map, string direction)
     {
         int i = this.position[0];
@@ -43,7 +45,8 @@ class Movable:UnpossibleToPassThrough
             {
                 map[position[0],position[1]] = map[this.position[0], this.position[1]];
                 map[this.position[0], this.position[1]] = new Space();
-                this.position = new int[]{position[0],position[1]};
+                this.prevposition = this.position;
+                this.position = position;
             }
             else if (map[position[0],position[1]] is UnpossibleToPassThrough)
                 StumbledUponObstacle = true;
@@ -52,5 +55,24 @@ class Movable:UnpossibleToPassThrough
         {
 
         }
+    }
+    public string GetDirection()
+    {
+        string direction = "";
+        if (Math.Abs(this.prevposition[0] - this.position[0])>Math.Abs(this.prevposition[0] - this.position[0]))
+        {
+            if (this.prevposition[0] > this.position[0])
+                direction = "Up";
+            else if (this.prevposition[0] < this.position[0])
+                direction = "Down";
+        }
+        else
+        {
+            if (this.prevposition[1] > this.position[1])
+                direction = "Left";
+            else if (this.prevposition[1] < this.position[1])
+                direction = "Right";
+        }
+        return direction;
     }
 }

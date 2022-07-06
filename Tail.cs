@@ -9,5 +9,6 @@ class Tail:Movable
         this.lastPosition[0] = position[0]+1;
         this.lastPosition[1] = position[1];
         this.id = id;
+        this.prevposition = position;
     }
 }

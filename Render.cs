@@ -5,27 +5,27 @@ class Render
     private string[,] textureMap;
     private Dictionary<string, string> TextureCollection = new()
     {
-        {"border"      , "███████████████"},
-        {"foodpoint"   , " ▗▚▁ ▐▓▓▓▌ ▘▀▝ "},
-        {"space"       , "               "},
-        {"head"        , "╔═══╗║   ║╚═══╝"},
-        {"tail"        , "┌───┐│   │└───┘"},
-        {"tail-LR"     , "─────     ─────"},
-        {"tail-UD"     , "│   ││   ││   │"},
-        {"tail-LU"     , "┘   │    │────┘"},
-        {"tail-UR"     , "│   └│    └────"},
-        {"tail-LD"     , "────┐    │┐   │"},
-        {"tail-RD"     , "┌────│    │   ┌"},
-        {"tail-RL"     , "─────     ─────"},
-        {"tail-DU"     , "│   ││   ││   │"},
-        {"tail-UL"     , "┘   │    │────┘"},
-        {"tail-RU"     , "│   └│    └────"},
-        {"tail-DL"     , "────┐    │┐   │"},
-        {"tail-DR"     , "┌────│    │   ┌"},
-        {"tail-LE"     , "────┐    │────┘"},
-        {"tail-UE"     , "│   ││   │└───┘"},
-        {"tail-RE"     , "┌────│    └────"},
-        {"tail-DE"     , "┌───┐│   ││   │"},
+        {"border"      , "████████████████████████████████"},
+        {"foodpoint"   , " ▗▄▞▚▂▁ ▐▓▓▓▓▓▓▌▐▓▓▓▓▓▓▌ ▘▀▀▀▀▝ "},
+        {"space"       , "                                "},
+        {"head(0)"        , "╔══════╗║      ║║      ║╚══════╝"},
+        {"tail"        , "┌──────┐│      ││      │└──────┘"},
+        {"tail-LR(0)"     , "────────                ────────"},
+        {"tail-UD(0)"     , "│      ││      ││      ││      │"},
+        {"tail-LU(0)"     , "┘      │       │       │───────┘"},
+        {"tail-UR(0)"     , "│      └│       │       └───────"},
+        {"tail-LD(0)"     , "───────┐       │       │┐      │"},
+        {"tail-RD(0)"     , "┌───────│       │       │      ┌"},
+        {"tail-RL(0)"     , "────────                ────────"},
+        {"tail-DU(0)"     , "│      ││      ││      ││      │"},
+        {"tail-UL(0)"     , "┘      │       │       │───────┘"},
+        {"tail-RU(0)"     , "│      └│       │       └───────"},
+        {"tail-DL(0)"     , "───────┐       │       │┐      │"},
+        {"tail-DR(0)"     , "┌───────│       │       │      ┌"},
+        {"tail-LE(0)"     , "───────┐       │       │───────┘"},
+        {"tail-UE(0)"     , "│      ││      ││      │└──────┘"},
+        {"tail-RE(0)"     , "┌───────│       │       └───────"},
+        {"tail-DE(0)"     , "┌──────┐│      ││      ││      │"},
     };
     public Render(int [] resolution, object[,] map)
     {
@@ -41,7 +41,15 @@ class Render
         {
             for (int j=0; j < this.map.GetLength(1); j++)
             {
-                ReplacementCalculation(i,j);
+                DinamicTail(i,j);
+            }
+        }
+        for (int i=0; i < this.map.GetLength(0); i++)
+        {
+            for (int j=0; j < this.map.GetLength(1); j++)
+            {
+                if (this.map[i,j] is Movable)
+                    AnimeMove((Movable)this.map[i,j]);
             }
         }
         OutputDisplay(textureMap);
@@ -61,7 +69,15 @@ class Render
             }
         }
     }
-    private void ReplacementCalculation(int i,int j)
+    private void AnimeMove(Movable movable)
+    {
+        //this.textureMap[movable.prevposition[0],movable.prevposition[1]] += "("+""+")";
+        if (movable.TickAnimetion == 0)
+            this.textureMap[movable.position[0],movable.position[1]] += "("+movable.TickAnimetion.ToString()+")";
+        else
+            this.textureMap[movable.position[0],movable.position[1]] = "space";
+    }
+    private void DinamicTail(int i,int j)
     {
         switch (this.map[i,j])
         {

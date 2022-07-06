@@ -1,7 +1,7 @@
 class Event
 {
     private object[,] map;
-    private int [] resolution = new int[]{5, 3};
+    private int [] resolution = new int[]{8, 4};
     private Render render;
     private Shake SomeShake;
     private string direction = "Up";
@@ -16,7 +16,7 @@ class Event
         SomeShake.GrowTail(map);
         FoodPoint firstFood = new FoodPoint(map);
         map[firstFood.posX, firstFood.posY] = firstFood;
-        RunMainLoop(0.7);
+        RunMainLoop(0.5);
     }
     public void RunMainLoop(double speed)
     {
@@ -33,6 +33,7 @@ class Event
             while (lag >= 1000/speed)
             {
                 Update();
+                MotionSmoothing(speed);
                 lag -= 1000/speed;
                 speed += 0.00;
             }
@@ -70,6 +71,10 @@ class Event
             GameOver();
             SomeShake.StumbledUponObstacle=false;
         }
+    }
+    private void MotionSmoothing(double speed)
+    {
+        new Thread(() => SomeShake.Animation(speed)){IsBackground = true}.Start();
     }
     private void GameOver()
     {

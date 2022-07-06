@@ -33,4 +33,18 @@ class Shake : Movable
         TailsShake.Add(new Tail(TailsShake[TailsShake.Count-1].id+1, TailsShake[TailsShake.Count-1].lastPosition));
         map[TailsShake[TailsShake.Count-1].position[0], TailsShake[TailsShake.Count-1].position[1]] = TailsShake[TailsShake.Count-1];
     }
+    public void Animation(double speed)
+    {
+        double previous = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        for(TickAnimetion = 7;TickAnimetion>=0;TickAnimetion--)
+        {
+            HeadShake.TickAnimetion = TickAnimetion;
+            for (int i=0; i<TailsShake.Count;i++)
+            {
+                TailsShake[i].TickAnimetion = TickAnimetion;
+            }
+            double current = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            Thread.Sleep(((int)(125)));
+        }
+    }
 }

@@ -4,5 +4,6 @@ class Head:Movable
     public Head(int []position)
     {
         this.position = position;
+        this.prevposition = position;
     }
 }
