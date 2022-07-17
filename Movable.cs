@@ -59,19 +59,19 @@ class Movable:UnpossibleToPassThrough
     public string GetDirection()
     {
         string direction = "";
-        if (Math.Abs(this.prevposition[0] - this.position[0])>Math.Abs(this.prevposition[0] - this.position[0]))
+        if (Math.Abs(this.prevposition[0] - this.position[0])>Math.Abs(this.prevposition[1] - this.position[1]))
         {
             if (this.prevposition[0] > this.position[0])
-                direction = "Up";
+                direction = "U";
             else if (this.prevposition[0] < this.position[0])
-                direction = "Down";
+                direction = "D";
         }
         else
         {
             if (this.prevposition[1] > this.position[1])
-                direction = "Left";
+                direction = "L";
             else if (this.prevposition[1] < this.position[1])
-                direction = "Right";
+                direction = "R";
         }
         return direction;
     }

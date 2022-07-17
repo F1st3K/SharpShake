@@ -16,7 +16,7 @@ class Event
         SomeShake.GrowTail(map);
         FoodPoint firstFood = new FoodPoint(map);
         map[firstFood.posX, firstFood.posY] = firstFood;
-        RunMainLoop(0.5);
+        RunMainLoop(1000);
     }
     public void RunMainLoop(double speed)
     {
@@ -30,11 +30,11 @@ class Event
             double elapsed = current - previous;
             previous = current;
             lag += elapsed;
-            while (lag >= 1000/speed)
+            while (lag >= speed)
             {
                 Update();
                 MotionSmoothing(speed);
-                lag -= 1000/speed;
+                lag -= speed;
                 speed += 0.00;
             }
 

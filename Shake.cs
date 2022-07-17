@@ -35,7 +35,6 @@ class Shake : Movable
     }
     public void Animation(double speed)
     {
-        double previous = DateTimeOffset.Now.ToUnixTimeMilliseconds();
         for(TickAnimetion = 7;TickAnimetion>=0;TickAnimetion--)
         {
             HeadShake.TickAnimetion = TickAnimetion;
@@ -43,8 +42,7 @@ class Shake : Movable
             {
                 TailsShake[i].TickAnimetion = TickAnimetion;
             }
-            double current = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-            Thread.Sleep(((int)(125)));
+            Thread.Sleep(((int)(speed/8-5)));
         }
     }
 }

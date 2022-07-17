@@ -5,11 +5,11 @@ class Render
     private string[,] textureMap;
     private Dictionary<string, string> TextureCollection = new()
     {
-        {"border"      , "████████████████████████████████"},
-        {"foodpoint"   , " ▗▄▞▚▂▁ ▐▓▓▓▓▓▓▌▐▓▓▓▓▓▓▌ ▘▀▀▀▀▝ "},
-        {"space"       , "                                "},
+        {"border"         , "████████████████████████████████"},
+        {"foodpoint"      , " ▗▄▞▚▂▁ ▐▓▓▓▓▓▓▌▐▓▓▓▓▓▓▌ ▘▀▀▀▀▝ "},
+        {"space"          , "                                "},
         {"head(0)"        , "╔══════╗║      ║║      ║╚══════╝"},
-        {"tail"        , "┌──────┐│      ││      │└──────┘"},
+        {"tail"           , "┌──────┐│      ││      │└──────┘"},
         {"tail-LR(0)"     , "────────                ────────"},
         {"tail-UD(0)"     , "│      ││      ││      ││      │"},
         {"tail-LU(0)"     , "┘      │       │       │───────┘"},
@@ -26,12 +26,66 @@ class Render
         {"tail-UE(0)"     , "│      ││      ││      │└──────┘"},
         {"tail-RE(0)"     , "┌───────│       │       └───────"},
         {"tail-DE(0)"     , "┌──────┐│      ││      ││      │"},
+            {"head(7U)1"        , "                        ╔══════╗"},
+            {"head(6U)1"        , "                        ╔══════╗"},
+            {"head(5U)1"        , "                ╔══════╗║      ║"},
+            {"head(4U)1"        , "                ╔══════╗║      ║"},
+            {"head(3U)1"        , "        ╔══════╗║      ║║      ║"},
+            {"head(2U)1"        , "        ╔══════╗║      ║║      ║"},
+            {"head(1U)1"        , "╔══════╗║      ║║      ║╚══════╝"},
+            {"head(7D)1"        , "╚══════╝                        "},
+            {"head(6D)1"        , "╚══════╝                        "},
+            {"head(5D)1"        , "║      ║╚══════╝                "},
+            {"head(4D)1"        , "║      ║╚══════╝                "},
+            {"head(3D)1"        , "║      ║║      ║╚══════╝        "},
+            {"head(2D)1"        , "║      ║║      ║╚══════╝        "},
+            {"head(1D)1"        , "╔══════╗║      ║║      ║╚══════╝"},
+            {"head(7L)1"        , "       ╔       ║       ║       ╚"},
+            {"head(6L)1"        , "      ╔═      ║       ║       ╚═"},
+            {"head(5L)1"        , "     ╔══     ║       ║       ╚══"},
+            {"head(4L)1"        , "    ╔═══    ║       ║       ╚═══"},
+            {"head(3L)1"        , "   ╔════   ║       ║       ╚════"},
+            {"head(2L)1"        , "  ╔═════  ║       ║       ╚═════"},
+            {"head(1L)1"        , " ╔══════ ║       ║       ╚══════"},
+            {"head(7R)1"        , "╗       ║       ║       ╝       "},
+            {"head(6R)1"        , "═╗       ║       ║      ═╝      "},
+            {"head(5R)1"        , "══╗       ║       ║     ══╝     "},
+            {"head(4R)1"        , "═══╗       ║       ║    ═══╝    "},
+            {"head(3R)1"        , "════╗       ║       ║   ════╝   "},
+            {"head(2R)1"        , "═════╗       ║       ║  ═════╝  "},
+            {"head(1R)1"        , "══════╗       ║       ║ ══════╝ "},
+            {"tail-LR(11L)"     , "────────                ────────"},
+            {"tail-UD(1U)"     , "│      ││      ││      ││      │"},
+            {"tail-LU(1L)"     , "┘      │       │       │───────┘"},
+            {"tail-UR(1U)"     , "│      └│       │       └───────"},
+            {"tail-LD(1L)"     , "───────┐       │       │┐      │"},
+            {"tail-RD(1R)"     , "┌───────│       │       │      ┌"},
+            {"tail-RL(1R)"     , "────────                ────────"},
+            {"tail-DU(1D)"     , "│      ││      ││      ││      │"},
+            {"tail-UL(1U)"     , "┘      │       │       │───────┘"},
+            {"tail-RU(1R)"     , "│      └│       │       └───────"},
+            {"tail-DL(1D)"     , "───────┐       │       │┐      │"},
+            {"tail-DR(1D)"     , "┌───────│       │       │      ┌"},
+            {"tail-LE(1L)"     , "───────┐       │       │───────┘"},
+            {"tail-UE(1U)"     , "│      ││      ││      │└──────┘"},
+            {"tail-RE(1R)"     , "┌───────│       │       └───────"},
+            {"tail-DE(1D)"     , "┌──────┐│      ││      ││      │"},
     };
+    private Dictionary<string, string> AnimeCollection = new()
+        {
+            
+        };
     public Render(int [] resolution, object[,] map)
     {
         this.resolution = resolution;
         this.map  = map;
         this.textureMap = new string[this.map.GetLength(0),this.map.GetLength(1)];
+        CreateAnimation("head", "space", 8);
+        foreach(var texture in TextureCollection)
+        {
+            Console.WriteLine($"key: {texture.Key}  value: {texture.Value}");
+        }
+        Console.Write("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
     public void RenderMap(object[,] map)
     {
@@ -69,13 +123,48 @@ class Render
             }
         }
     }
+    private void CreateAnimation(string textureName, string replacement, int tickNumber)
+    {
+        for (int j=tickNumber-1; j>=0; j--)
+        {
+            string texture = (this.TextureCollection[replacement] + this.TextureCollection[textureName+"(0)"]).Substring(this.resolution[0]*(int)Math.Round((float)(tickNumber - j)/2, 1), this.resolution[0]*this.resolution[1]);
+            this.TextureCollection.Add(textureName+"("+j+"U)", texture);
+        }
+        for (int j=tickNumber-1; j>=0; j--)
+        {
+            string texture = (this.TextureCollection[textureName+"(0)"] + this.TextureCollection[replacement]).Substring(this.resolution[0]*(int)Math.Round((float)j/2, 1), this.resolution[0]*this.resolution[1]);
+            this.TextureCollection.Add(textureName+"("+j+"D)", texture);
+        }
+        for (int j=tickNumber-1; j>=0; j--)
+        {
+            string texture = "";
+            for ( int i = 0; i < this.resolution[1]; i ++)
+            {
+               texture += (this.TextureCollection[replacement].Substring(i*this.resolution[0]+1, j) + this.TextureCollection[textureName+"(0)"]).Substring(i*this.resolution[0], this.resolution[0]);
+            }
+            this.TextureCollection.Add(textureName+"("+j+"L)", texture);
+        }
+        for (int j=tickNumber-1; j>=0; j--)
+        {
+            string texture = "";
+            for ( int i = 0; i < this.resolution[1]; i ++)
+            {
+               texture += (this.TextureCollection[textureName+"(0)"].Substring(i*this.resolution[0]+1, j) + this.TextureCollection[replacement]).Substring(0, this.resolution[0]);
+            }
+            this.TextureCollection.Add(textureName+"("+j+"R)", texture);
+        }
+        
+    }
     private void AnimeMove(Movable movable)
     {
-        //this.textureMap[movable.prevposition[0],movable.prevposition[1]] += "("+""+")";
-        if (movable.TickAnimetion == 0)
-            this.textureMap[movable.position[0],movable.position[1]] += "("+movable.TickAnimetion.ToString()+")";
+        if (movable is Head && !(movable.TickAnimetion == 0)/*|| (movable is Tail && ((Tail)movable).id == 0)*/)
+        {
+            this.textureMap[movable.position[0],movable.position[1]] += "("+movable.TickAnimetion.ToString()+movable.GetDirection()+")";
+        }
         else
-            this.textureMap[movable.position[0],movable.position[1]] = "space";
+        {
+            this.textureMap[movable.position[0],movable.position[1]] += "("+0+")";
+        }
     }
     private void DinamicTail(int i,int j)
     {
